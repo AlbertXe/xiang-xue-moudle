@@ -19,6 +19,7 @@
         <module>common-service</module>
         <module>xiangxue</module>
         <module>springcloud-eureka</module>
+        <module>springcloud-order</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
