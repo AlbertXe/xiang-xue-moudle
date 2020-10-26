@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web>
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>ch8_tomcat_ngix.MyServlet</servlet-class>
+    </servlet>
+</web>

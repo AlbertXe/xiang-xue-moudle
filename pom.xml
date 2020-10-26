@@ -12,6 +12,7 @@
         <module>springboot-dubbo-provide</module>
         <module>springboot-dubbo-consumer</module>
         <module>common-service</module>
+        <module>xiangxue</module>
     </modules>
 
 
