@@ -20,6 +20,7 @@
         <module>xiangxue</module>
         <module>springcloud-eureka</module>
         <module>springcloud-order</module>
+        <module>springcloud-consumer</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
