@@ -3,7 +3,6 @@ package com;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
@@ -19,8 +18,8 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 public class ConsumerApp {
     @Bean
-    // 负载均衡
-    @LoadBalanced
+        // 负载均衡  单机时 服务地址上的服务名不能时localhost
+//    @LoadBalanced
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
