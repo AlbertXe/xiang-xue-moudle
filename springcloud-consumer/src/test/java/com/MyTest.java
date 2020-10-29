@@ -28,9 +28,9 @@ public class MyTest {
     public ContiPerfRule rule = new ContiPerfRule();
 
     @Test
-    @PerfTest(invocations = 10, threads = 10)
+    @PerfTest(threads = 10, invocations = 10)
     public void test() {
         System.out.println(1);
-//        ticketService.qryTicket();
+        ticketService.qryTicket();
     }
 }
