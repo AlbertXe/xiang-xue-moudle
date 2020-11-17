@@ -9,10 +9,15 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * @description:
+ * @author: AlbertXe
+ * @create: 2020-11-17 10:47
+ */
 @Target({ElementType.TYPE, ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Scope("my")
-public @interface MyScope {
+@Scope("refresh")
+public @interface RefreshScope {
     ScopedProxyMode proxyMode() default ScopedProxyMode.TARGET_CLASS;
 }

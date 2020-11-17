@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
  */
 @Data
 @Component
+@RefreshScope
 public class MailConfig {
     @Value("${mail.host}")
     private String host;
