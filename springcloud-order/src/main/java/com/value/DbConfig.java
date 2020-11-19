@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class DbConfig {
-    @Value("${jdbc.url}")
+    @Value("${jdbc.url:}")
     private String url;
 
-    @Value("${jdbc.username}")
+    @Value("${jdbc.username:}")
     private String username;
 
-    @Value("${jdbc.password}")
+    @Value("${jdbc.password:}")
     private String password;
 
 }

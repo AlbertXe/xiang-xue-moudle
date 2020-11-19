@@ -13,11 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 @RefreshScope
 public class MailConfig {
-    @Value("${mail.host}")
+    @Value("${mail.host:}")
     private String host;
-    @Value("${mail.username}")
+    @Value("${mail.username:}")
     private String username;
-    @Value("${mail.password}")
+    @Value("${mail.password:}")
     private String password;
 
 }
