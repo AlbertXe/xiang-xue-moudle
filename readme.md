@@ -14,4 +14,7 @@
 高可用
 host文件
 C:\Windows\System32\drivers\etc  
-127.0.0.1       localhost eureka8761 eureka8762            
+127.0.0.1       localhost eureka8761 eureka8762       
+
+#### redis     
+jedis 链接需要 redis.conf protected-mode=no  关闭保护模式

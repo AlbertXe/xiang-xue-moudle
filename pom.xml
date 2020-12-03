@@ -23,6 +23,7 @@
         <module>springcloud-consumer</module>
         <module>my-springboot-autoconfig</module>
         <module>spring-demo-war</module>
+        <module>springboot-redis</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
