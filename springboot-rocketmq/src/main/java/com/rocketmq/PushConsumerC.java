@@ -23,6 +23,8 @@ public class PushConsumerC {
         consumer.setNamesrvAddr(RocketmqConstants.host);
         // 从最后开始消费
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
+        // 消息负载
+//        consumer.setAllocateMessageQueueStrategy(new AllocateMessageQueueAveragely());
         consumer.registerMessageListener(new MessageListenerConcurrently() {
             @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> list, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
