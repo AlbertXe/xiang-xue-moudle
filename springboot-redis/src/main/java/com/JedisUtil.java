@@ -2,6 +2,7 @@ package com;
 
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Pipeline;
 
 import java.util.HashMap;
 import java.util.List;
@@ -52,5 +53,13 @@ public class JedisUtil {
             List<String> result = jedis.hmget(s, "orderId", "money", "time");
             System.out.println(result);
         }
+    }
+
+    @Test
+    public void test2() {
+        Jedis jedis = new Jedis("192.168.1.101", 6379);
+        Pipeline pipelined = jedis.pipelined();
+        pipelined.del("orderId:1");
+        pipelined.sync();
     }
 }

@@ -24,6 +24,7 @@
         <module>my-springboot-autoconfig</module>
         <module>spring-demo-war</module>
         <module>springboot-redis</module>
+        <module>springboot-rocketmq</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
