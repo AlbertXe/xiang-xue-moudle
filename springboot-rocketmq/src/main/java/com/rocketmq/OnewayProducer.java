@@ -20,6 +20,10 @@ public class OnewayProducer {
         for (int i = 0; i < 10; i++) {
             String body = "hello MQ" + i;
             Message message = new Message(RocketmqConstants.topicTest, "tagA", body.getBytes());
+            // 1 5 10 30 s
+            // 1-10 20 30 m
+            // 1 2 h
+            message.setDelayTimeLevel(3);
             SendResult sendResult = producer.send(message);
             System.out.println(new String(message.getBody()));
             System.out.println("id:" + sendResult.getMsgId());
