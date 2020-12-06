@@ -1,0 +1,27 @@
+GET http://localhost:8081/rocket/send?msg=hello
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic YWRtaW46YWRtaW4=
+
+<> 2020-12-06T103835.200.txt
+
+###
+
+GET http://localhost:8081/rocket/send?msg=hello
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic YWRtaW46YWRtaW4=
+
+<> 2020-12-06T102601.200.txt
+
+###
+
+POST http://localhost:8085/encrept
+Accept: */*
+Cache-Control: no-cache
+Authorization: Basic YWRtaW46YWRtaW4=
+
+<> 2020-11-06T084730.404.json
+
+###
+
