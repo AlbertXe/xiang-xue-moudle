@@ -5,5 +5,6 @@ public class RocketmqConstants {
     public static final String topicTest = "topicTest";
     public static final String allOrder = "allOrder";
     public static final String partOrder = "partOrder";
+    public static final String trans = "transaction-producer";
 
 }
