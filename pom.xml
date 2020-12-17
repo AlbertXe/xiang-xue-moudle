@@ -25,6 +25,8 @@
         <module>spring-demo-war</module>
         <module>springboot-redis</module>
         <module>springboot-rocketmq</module>
+        <module>multi-datasource</module>
+        <module>rpc-client</module>
         <module>springboot-netty</module>
     </modules>
     <properties>
