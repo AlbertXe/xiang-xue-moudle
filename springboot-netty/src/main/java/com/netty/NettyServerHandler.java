@@ -5,6 +5,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.util.ReferenceCountUtil;
 
 /**
  * 86150
@@ -18,6 +19,8 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("nettyServer:"+msg);
         ctx.write(msg);
+        ctx.fireChannelRead(msg);
+        ReferenceCountUtil.release(msg); // 释放bytebuf以便重用
 
     }
 
