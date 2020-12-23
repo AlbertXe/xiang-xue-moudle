@@ -8,6 +8,8 @@ import com.google.common.eventbus.Subscribe;
  * 1. 注册事件(添加订阅者)
  *
  * 2. 发起事件通知,依次通知这些订阅者
+ *
+ * 监听继承  A 继承B的监听
  * 86150
  * EventBusDemo
  * 2020/12/23 22:52
