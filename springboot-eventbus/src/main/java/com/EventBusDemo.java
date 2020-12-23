@@ -1,5 +1,6 @@
 package com;
 
+import com.google.common.eventbus.DeadEvent;
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;
 
@@ -24,6 +25,11 @@ public class EventBusDemo {
     public void sendByComputer(Integer msg) {
         System.out.println("手机发送:" + msg);
     }
+    @Subscribe
+    public void sendByCompute2r(DeadEvent msg) {
+        System.out.println("Dead发送:" + msg);
+    }
+
 
 
     public static void main(String[] args) {
@@ -33,6 +39,8 @@ public class EventBusDemo {
         Integer hello2 = 123;
         eventBus.post(hello);
         eventBus.post(hello2);
+        // 发送死信 也就是没有subscribe
+        eventBus.post(new Object());
         eventBus.unregister(hello);
         eventBus.unregister(hello2);
 
