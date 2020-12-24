@@ -29,6 +29,7 @@
         <module>rpc-client</module>
         <module>springboot-netty</module>
         <module>springboot-eventbus</module>
+        <module>springboot-activity</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
