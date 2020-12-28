@@ -30,6 +30,7 @@
         <module>springboot-netty</module>
         <module>springboot-eventbus</module>
         <module>springboot-activity</module>
+        <module>aplus-base-bd</module>
     </modules>
     <properties>
         <spring-cloud.version>Hoxton.SR1</spring-cloud.version>
