@@ -44,7 +44,7 @@ import java.util.stream.Collectors;
  * @create: 2020-12-29 09:34
  */
 @Configuration
-public class MybatisSqlSessionFactoryFactory {
+public class MybatisSqlSessionFactoryConfiguration {
     private static final String ENUMPACK = "com.dao";
 
     @Autowired
@@ -138,7 +138,7 @@ public class MybatisSqlSessionFactoryFactory {
         return interceptor;
     }
 
-    private org.apache.ibatis.session.Configuration buildConfiguration() {
+    public org.apache.ibatis.session.Configuration buildConfiguration() {
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setDefaultStatementTimeout(datasourceConfigProperties.getSqlTimeOut());
         synchronized (LOCK) {
