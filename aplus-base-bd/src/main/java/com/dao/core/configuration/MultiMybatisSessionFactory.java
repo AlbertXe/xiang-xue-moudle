@@ -1,5 +1,6 @@
 package com.dao.core.configuration;
 
+import com.dao.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -27,6 +28,7 @@ public class MultiMybatisSessionFactory {
 
     private static SqlSessionFactory sqlSessionFactory() {
         // TODO
+        MybatisSqlSessionFactoryFactory mybatisSqlSessionFactoryFactory = SpringContextUtil.getBean(MybatisSqlSessionFactoryFactory.class);
 
         return null;
     }
