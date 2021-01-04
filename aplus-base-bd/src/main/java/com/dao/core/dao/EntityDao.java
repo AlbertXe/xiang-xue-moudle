@@ -12,6 +12,19 @@ public interface EntityDao<T extends Entity> extends Serializable {
 
     int insertBatch(String mapperId, List<T> tList);
 
+    int insertNotNull(T t);
+    int insertNotNull(List<T> tList);
+
+    int update(T t);
+    int update(List<T> t);
+    int update(String mapperId, Object param);
+    int updateAll(String mapperId, List<T> tList);
+    int updateNotNull(T t);
+    int updateNotNull(List<T> tList);
+
+
+
+
     // TODO
 
 }

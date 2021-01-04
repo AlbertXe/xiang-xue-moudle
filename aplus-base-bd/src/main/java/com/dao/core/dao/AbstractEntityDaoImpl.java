@@ -2,6 +2,7 @@ package com.dao.core.dao;
 
 import com.dao.core.DatasourceConfigProperties;
 import com.google.common.collect.Lists;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -94,5 +95,50 @@ public abstract class AbstractEntityDaoImpl<T extends Entity> extends AbstractBa
         return count;
     }
 
-    // TODO
+    @Override
+    public int insertNotNull(T t) {
+        return insert("insertSelective", t);
+    }
+
+    @Override
+    public int insertNotNull(List<T> tList) {
+        int count = 0;
+        if (CollectionUtils.isEmpty(tList)) {
+            return 0;
+        }
+        for (T t : tList) {
+            count += insert("insertSelective", t);
+        }
+        return count;
+    }
+
+    @Override
+    public int update(T t) {
+        return update("updateByPrimaryKey", t);
+    }
+
+    @Override
+    public int update(List<T> t) {
+        return 0;
+    }
+
+    @Override
+    public int update(String mapperId, Object param) {
+        return 0;
+    }
+
+    @Override
+    public int updateAll(String mapperId, List<T> tList) {
+        return 0;
+    }
+
+    @Override
+    public int updateNotNull(T t) {
+        return 0;
+    }
+
+    @Override
+    public int updateNotNull(List<T> tList) {
+        return 0;
+    }
 }

@@ -2,12 +2,12 @@ package com.dao.venus;
 
 
 import com.dao.venus.event.ShardingEventBusInstance;
-import groovy.transform.SelfType;
 import io.shardingsphere.core.constant.DatabaseType;
 import io.shardingsphere.shardingjdbc.jdbc.adapter.AbstractDataSourceAdapter;
 import io.shardingsphere.transaction.core.datasource.ShardingTransactionalDataSource;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.SneakyThrows;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ import java.util.Map;
  */
 @Getter
 @Setter
-public abstract class AbstractDataSourceBean extends AbstractDataSourceAdapter {
+public abstract class AbstractDataSourceBean extends AbstractDataSourceAdapter implements AutoCloseable {
     protected AbstractDataSourceAdapter datasource;
     protected String namespace;
 
@@ -32,13 +32,17 @@ public abstract class AbstractDataSourceBean extends AbstractDataSourceAdapter {
         ShardingEventBusInstance.getInstance().register(this);
     }
 
+    @SneakyThrows
     public AbstractDataSourceBean(String namespace) {
+        super(null);
         this.namespace = namespace;
         this.datasource = createDataSource(namespace);
         ShardingEventBusInstance.getInstance().register(this);
     }
 
+    @SneakyThrows
     public AbstractDataSourceBean(String filePath, boolean local) {
+        super(null);
         this.datasource = createDataSource(filePath,local);
         this.namespace = local ? null : filePath;
         ShardingEventBusInstance.getInstance().register(this);

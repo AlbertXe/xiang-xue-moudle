@@ -43,7 +43,6 @@ public class MultiMybatisSessionFactory {
     }
 
     private static SqlSessionFactory sqlSessionFactory() {
-        // TODO
         MybatisSqlSessionFactoryConfiguration mybatisSqlSessionFactoryConfiguration = SpringContextUtil.getBean(MybatisSqlSessionFactoryConfiguration.class);
         DatasourceConfigProperties datasourceConfigProperties = SpringContextUtil.getBean(DatasourceConfigProperties.class);
         String mapper = datasourceConfigProperties.getMapper();

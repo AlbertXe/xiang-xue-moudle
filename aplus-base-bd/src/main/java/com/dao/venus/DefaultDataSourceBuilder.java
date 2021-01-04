@@ -1,10 +1,10 @@
 package com.dao.venus;
 
+import com.dao.venus.event.DefaultDatasourceEvent;
+import com.dao.venus.event.ShardingEventBusInstance;
 import io.shardingsphere.core.yaml.sharding.YamlShardingConfiguration;
 
 import javax.sql.DataSource;
-import java.io.IOException;
-import java.sql.SQLException;
 
 /**
  * @description:
@@ -14,12 +14,21 @@ import java.sql.SQLException;
 public class DefaultDataSourceBuilder extends AbstractDataSourceBuilder {
     @Override
     protected void refresh(DataSource ds, String namespace) {
+        DefaultDataSource defaultDataSource = (DefaultDataSource) ds;
+        ShardingEventBusInstance.getInstance().post(new DefaultDatasourceEvent(namespace, (DefaultDataSource) ds));
+
     }
 
     @Override
-    protected DataSource build(byte[] bytes) throws IOException, SQLException {
-        YamlShardingConfiguration config = YamlShardingConfiguration.unmarshal(bytes);
-        DefaultDataSource dataSource = new DefaultDataSource(config.getDataSources());
-        return dataSource;
+    protected DataSource build(byte[] bytes) {
+        YamlShardingConfiguration config = null;
+        try {
+            config = YamlShardingConfiguration.unmarshal(bytes);
+            DefaultDataSource dataSource = new DefaultDataSource(config.getDataSources());
+            return dataSource;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

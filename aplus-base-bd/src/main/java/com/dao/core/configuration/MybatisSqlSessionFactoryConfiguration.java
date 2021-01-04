@@ -158,8 +158,4 @@ public class MybatisSqlSessionFactoryConfiguration {
         configuration.getTypeHandlerRegistry().register(JSONArray.class, JdbcType.VARCHAR, MysqlJsonHandler.class);
         return configuration;
     }
-
-    //TODO
-
-
 }

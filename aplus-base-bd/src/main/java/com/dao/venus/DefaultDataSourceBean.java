@@ -1,5 +1,6 @@
 package com.dao.venus;
 
+import com.dao.venus.event.DefaultDatasourceEvent;
 import io.shardingsphere.shardingjdbc.jdbc.adapter.AbstractDataSourceAdapter;
 
 import javax.sql.DataSource;
@@ -28,12 +29,18 @@ public class DefaultDataSourceBean extends AbstractDataSourceBean {
     @Override
     protected AbstractDataSourceAdapter createDataSource(String filePath, boolean local) {
         ShardingDataSourceBuilder builder = new ShardingDataSourceBuilder();
-        //TODO
-        return null;
+        return (DefaultDataSource) builder.build(filePath, local);
     }
 
     @Override
     protected AbstractDataSourceAdapter createDataSource(String namespace) {
         return null;
+    }
+
+    public void renew(DefaultDatasourceEvent datasourceEvent) {
+        if (this.getNamespace().equals(datasourceEvent.getNamespace())) {
+            this.datasource.close();
+            this.datasource = datasourceEvent.getDefaultDataSource();
+        }
     }
 }

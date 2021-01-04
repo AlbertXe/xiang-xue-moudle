@@ -1,5 +1,7 @@
 package com.dao.venus;
 
+import com.dao.venus.event.ShardingDatasourceEvent;
+import com.google.common.eventbus.Subscribe;
 import io.shardingsphere.shardingjdbc.jdbc.adapter.AbstractDataSourceAdapter;
 import io.shardingsphere.shardingjdbc.jdbc.core.datasource.ShardingDataSource;
 
@@ -37,5 +39,18 @@ public class ShardingDataSourceBean extends AbstractDataSourceBean {
     protected AbstractDataSourceAdapter createDataSource(String namespace) {
         ShardingDataSourceBuilder builder = new ShardingDataSourceBuilder();
        return (ShardingDataSource) builder.build(namespace);
+    }
+
+    /**
+     * 订阅事件
+     * @param datasourceEvent
+     */
+    @Subscribe
+    public void renew(ShardingDatasourceEvent datasourceEvent) {
+        if (this.getNamespace().equals(datasourceEvent.getNamespace())) {
+            this.datasource.close();
+
+            this.datasource = datasourceEvent.getShardingDataSource();
+        }
     }
 }
