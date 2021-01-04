@@ -92,5 +92,14 @@
             <artifactId>spring-boot-test</artifactId>
             <version>2.2.0.RELEASE</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.unidal.cat/cat-all -->
+        <!--<dependency>-->
+            <!--<groupId>org.unidal.cat</groupId>-->
+            <!--<artifactId>cat-all</artifactId>-->
+            <!--<version>2.0.0</version>-->
+        <!--</dependency>-->
+
+
     </dependencies>
 </project>
